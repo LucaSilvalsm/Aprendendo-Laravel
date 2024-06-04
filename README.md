@@ -22,22 +22,22 @@ Para criar o controller do Usuario aonde nele eu realizo todos os metodos utiliz
 
 Para retornar todos os Usuarios Criado no Sistemas : utilizo o metodo index
 
-    // Esse para a view e tela
+ Esse para a view e tela
 
-    public function index()
+    //    public function index()
     {
         $usuarios = ModelsUsuario::orderBy('id')->get();
         return view('usuario.index', ['usuarios' => $usuarios]);
     }
 
-    ///  Utilizo a propriedade Hash para criptografar a senha 
+Utilizo a propriedade Hash para criptografar a senha 
 
       public function setSenhaAttribute($password) // para deixar a senha hash e deixa ele de forma mais segura
     {
         $this->attributes['senha'] = Hash::make($password);
     }
 
-    // E tambem uso o required para validar o form, dizendo quais campos são obrigatorios 
+ E tambem uso o required para validar o form, dizendo quais campos são obrigatorios 
 
       public function rulesForCreate(): array
     {
@@ -72,7 +72,7 @@ Para retornar todos os Usuarios Criado no Sistemas : utilizo o metodo index
         ];
     }
 
-    // E esse para AQUI EU FALO DA API
+ E esse para AQUI EU FALO DA API
 
     * Route::get('usuario', [Usuario::class, 'apiIndex']); // retorna todos os usuarios
 
