@@ -4,7 +4,7 @@
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\API\UsuarioAPI;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,16 +16,10 @@ use App\Http\Controllers\API\UsuarioAPI;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::get('usuario', [Usuario::class, 'listar']); // retorna todos os usuarios
+Route::get('usuario/{id}',[Usuario::class,'getById']); // retornar ele pelo ID
+Route::post('usuario/store',[Usuario::class,'create']); // criando um usuario
+Route::put('usuario/update/{id}',[Usuario::class,'getByUpdate']); // atualizar o Cadastro
 
-Route::prefix('v1')->group(function() {
-    Route::get('lista', function() {
-        return Usuario::listar(10);
-    });
 
 
-    Route::post('cadastra', [UsuarioAPI::class, 'salvar']);
-    // Corrija a referência ao método salvar()
-});
-Route::prefix('v2')->group(function() {
-
-});

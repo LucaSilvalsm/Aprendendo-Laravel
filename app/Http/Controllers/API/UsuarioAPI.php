@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class UsuarioAPI extends Controller
 {
     //
-    public function salvar(Request $request)
+    public function getById($id)
     {
-        dd($request->all());
+       
     }
 }
